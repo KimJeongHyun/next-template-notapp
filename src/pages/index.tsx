@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import Link from "next/link";
+import { CommonLink } from "@/styles/commonStyled";
 
 export default function Home() {
   return (
@@ -11,7 +11,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main>
-        <Link href="/todo">go to todo-list</Link>
+        <CommonLink href="/todo">할 일 보기</CommonLink>
       </main>
     </>
   );

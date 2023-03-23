@@ -10,8 +10,8 @@ export default function Header() {
 
   return (
     <StickyHeader onClick={() => setIsLightTheme(!isLightTheme)}>
+      <ColorIconLabel>{`${isLightTheme ? "LIGHT" : "DARK"}`}</ColorIconLabel>
       <ChangeThemeButton>
-        <ColorIconLabel>{`${isLightTheme ? "LIGHT" : "DARK"}`}</ColorIconLabel>
         {isLightTheme ? <ColorIconLight /> : <ColorIconMoon />}
       </ChangeThemeButton>
     </StickyHeader>
@@ -20,14 +20,17 @@ export default function Header() {
 
 const StickyHeader = styled.div`
   height: 60px;
+
   position: sticky;
   top: 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 
   background-color: ${(props) => props.theme.bgColor};
   color: ${(props) => props.theme.textColor};
-  border-bottom: 1px solid #e2e2e2;
+  border-bottom: 1px solid ${(props) => props.theme.shadowColor};
   cursor: pointer;
 `;
 
@@ -48,7 +51,7 @@ const ChangeThemeButton = styled.div`
   align-items: center;
   gap: 8px;
   cursor: pointer;
-  padding: 16px;
+  padding: 8px;
   transition: all ease 0.5s;
 `;
 

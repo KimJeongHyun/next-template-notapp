@@ -18,13 +18,11 @@ function AppLayout({ children }: AppLayoutProps) {
   const [isLightTheme] = useRecoilState(isLightThemeState);
 
   return (
-    <div>
-      <ThemeProvider theme={isLightTheme ? lightTheme : darkTheme}>
-        <GlobalStyle />
-        <Header />
-        <Contents>{children}</Contents>
-      </ThemeProvider>
-    </div>
+    <ThemeProvider theme={isLightTheme ? lightTheme : darkTheme}>
+      <GlobalStyle />
+      <Header />
+      <Contents>{children}</Contents>
+    </ThemeProvider>
   );
 }
 
