@@ -6,17 +6,26 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "launch": "next build && next start"
   },
   "dependencies": {
     "@types/node": "18.15.5",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
+    "@types/styled-components": "^5.1.26",
+    "@types/uuid": "^9.0.1",
+    "babel-plugin-styled-components": "^2.0.7",
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
+    "fs": "^0.0.1-security",
     "next": "13.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "typescript": "5.0.2"
+    "react-icons": "^4.8.0",
+    "recoil": "^0.7.7",
+    "styled-components": "^5.3.9",
+    "typescript": "5.0.2",
+    "uuid": "^9.0.0"
   }
 }
