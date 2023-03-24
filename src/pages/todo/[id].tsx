@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
@@ -19,6 +19,11 @@ const getEachTodo = ({ id }: { id: number }) => {
     body: JSON.stringify({ data: { id }, type: "EACH" }),
   });
 };
+
+// Dynamic route는 보통 SSR을 하는 경우가 많으나, SSG를 하고 싶으면 getStaticPaths + getStaticProps를 조합해서 사용한다.
+// getStaticPaths는 빌드 단계에서 query.id에 해당하는 페이지들을 수집해서 static 파일로 모아둔다.
+// 호출된 id에 맞는 페이지를 정적 페이지로 로드만 해주기 때문에 성능상 뛰어난 이점이 있다.
+// 예를 들어 변경이 잦지 않은 블로그 글과 같은 것들이 SSG에 유용하다.
 
 export const getStaticPaths = async () => {
   const res = await fetch(`${SERVER_URL}/todo`);

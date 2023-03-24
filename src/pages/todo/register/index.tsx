@@ -46,9 +46,21 @@ export default function TodoRegister({ todoList }: { todoList: ITodoList[] }) {
       alert("내용을 채워주세요.");
       return;
     }
-    const cloneList = todoList;
+    // const cloneList = todoList;
 
-    cloneList.push({
+    // cloneList.push({
+    //   id:
+    //     todoList.length === 0
+    //       ? 1
+    //       : Math.max.apply(
+    //           null,
+    //           todoList.map((i) => i.id)
+    //         ) + 1,
+    //   title: title.value,
+    //   content: content.value,
+    // });
+
+    const concatData = {
       id:
         todoList.length === 0
           ? 1
@@ -58,12 +70,12 @@ export default function TodoRegister({ todoList }: { todoList: ITodoList[] }) {
             ) + 1,
       title: title.value,
       content: content.value,
-    });
+    };
 
     fetch(`${SERVER_URL}/todo`, {
       method: "POST",
       body: JSON.stringify({
-        data: cloneList,
+        data: concatData,
         type: "REG",
       }),
     }).then((res) => {
@@ -123,6 +135,7 @@ const TodoRegisterContent = styled.textarea`
   background: transparent;
   border-bottom: 1px solid #777;
   resize: none;
+  color: #000;
 `;
 
 const TodoRegisterBar = styled.div`

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
 
 import styled from "styled-components";
@@ -8,6 +8,9 @@ import { OpacityComponent } from "@/components";
 import { GetStaticProps, GetStaticPropsContext } from "next";
 import { SERVER_URL } from "@/env";
 import { CommonBtn } from "@/styles/commonStyled";
+
+// 정적 페이지를 생성하는 next.js의 api.
+// 페이지를 이동할 때 미리 getStaticProps에서 선언된 동작을 선 수행한 뒤 Client component에 props를 전달한다.
 
 export const getStaticProps: GetStaticProps = async (
   ctx: GetStaticPropsContext
@@ -152,6 +155,9 @@ const TodoIdxArrow = styled.div<{ isDisabled: boolean }>`
   cursor: ${(props) => (props.isDisabled ? "not-allowed" : "pointer")};
   pointer-events: ${(props) => (props.isDisabled ? "none" : "initial")};
   border-radius: 10%;
+  visibility: ${(props) => (props.isDisabled ? "hidden" : "visible")};
+  opacity: ${(props) => (props.isDisabled ? 0 : 1)};
+  transition: opacity ease 0.5s, visibility ease 0.5s;
 `;
 
 const TodoBtnBar = styled.div`
